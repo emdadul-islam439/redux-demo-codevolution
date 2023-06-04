@@ -1,3 +1,5 @@
+import redux from "redux";
+
 // initial state
 const initialState = {
   noOfCakes: 10,
@@ -26,6 +28,9 @@ const reducer = (state = initialState, action) => {
 };
 
 // store
-//
+const createStore = redux.legacy_createStore;
+const store = createStore(reducer);
+
+// subscribe-dispatch values
 
 console.log("From INDEX.JS");
