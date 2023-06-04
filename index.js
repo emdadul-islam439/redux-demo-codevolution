@@ -33,3 +33,12 @@ const store = createStore(reducer);
 
 // subscribe-dispatch values
 console.log("Initial state: ", store.getState());
+const unsubscribe = store.subscribe(() =>
+  console.log("Updated state: ", store.getState())
+);
+
+store.dispatch(buyCakes());
+store.dispatch(buyCakes());
+store.dispatch(buyCakes());
+store.dispatch(buyCakes());
+unsubscribe();
