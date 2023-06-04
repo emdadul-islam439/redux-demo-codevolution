@@ -43,6 +43,8 @@ const cakeReducer = (state = initialCakeState, action) => {
   }
 };
 
+
+//explanation about "spread" operator: https://www.youtube.com/watch?v=pYI-UuZVtHI
 const iceCreamReducer = (state = initialIceCreamState, action) => {
   switch (action.type) {
     case BUY_ICE_CREAM:
