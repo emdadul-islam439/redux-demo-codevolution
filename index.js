@@ -74,8 +74,9 @@ const store = createStore(rootReducer, applyMiddleware(logger));
 // subscribe-dispatch values
 // CHAT-GPT chat link: https://chat.openai.com/share/a0bc6ab6-57d1-4319-8afb-2f123a5eb2f8
 console.log("Initial state: ", store.getState());
-const unsubscribe = store.subscribe(() =>
-  console.log("Updated state: ", store.getState())
+const unsubscribe = store.subscribe(
+  () => {}
+  //   console.log("Updated state: ", store.getState())
 );
 
 store.dispatch(buyCakes());
