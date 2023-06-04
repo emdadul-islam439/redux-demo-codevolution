@@ -1,4 +1,5 @@
 const redux = require("redux");
+const reduxLogger = require("redux-logger");
 
 // initial state
 // creating 2 initial states for cakes and ice-cream each
@@ -61,9 +62,14 @@ const rootReducer = combineReducers({
   iceCream: iceCreamReducer,
 });
 
+// middleware
+const logger = reduxLogger.createLogger();
+const applyMiddleware = redux.applyMiddleware;
+
 // store
+// added middleware as argument
 const createStore = redux.legacy_createStore;
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(logger));
 
 // subscribe-dispatch values
 // CHAT-GPT chat link: https://chat.openai.com/share/a0bc6ab6-57d1-4319-8afb-2f123a5eb2f8
