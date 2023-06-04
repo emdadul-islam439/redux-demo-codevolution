@@ -1,5 +1,15 @@
 {
+  "name": "001_redux_demo_codevolution",
+  "description": "This project is about learning how to use Redux with the React projects. I'm following [Codevolution's](https://www.youtube.com/@Codevolution) (an Youtube channel) [React Redux Tutorial](https://youtube.com/playlist?list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK) playlist.",
+  "version": "1.0.0",
+  "main": "index.js",
   "dependencies": {
     "redux": "^4.2.1"
-  }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
