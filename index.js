@@ -1,13 +1,16 @@
 const redux = require("redux");
 
 // initial state
-const initialState = {
+// creating 2 initial states for cakes and ice-cream each
+const initialCakeState = {
   noOfCakes: 10,
+};
+const initialIceCreamState = {
   noOfIceCreams: 20,
 };
 
 // actions-> action_name, actions
-// created 2 actions for tackling 2 situations 
+// created 2 actions for tackling 2 situations
 const BUY_CAKE = "BUY_CAKE";
 const BUY_ICE_CREAM = "BUY_ICE_CREAM";
 
@@ -17,6 +20,7 @@ function buyCakes() {
     info: "cake action",
   };
 }
+
 function buyIceCream() {
   return {
     type: BUY_ICE_CREAM,
@@ -25,13 +29,21 @@ function buyIceCream() {
 }
 
 // reducers
-const reducer = (state = initialState, action) => {
+// creating 2 reducers for cakes and ice-cream each
+const cakeReducer = (state = initialCakeState, action) => {
   switch (action.type) {
     case BUY_CAKE:
       return {
         ...state,
         noOfCakes: state.noOfCakes - 1,
       };
+    default:
+      return state;
+  }
+};
+
+const iceCreamReducer = (state = initialIceCreamState, action) => {
+  switch (action.type) {
     case BUY_ICE_CREAM:
       return {
         ...state,
@@ -42,9 +54,16 @@ const reducer = (state = initialState, action) => {
   }
 };
 
+// configured for taking multiple reducers
+const combineReducers = redux.combineReducers;
+const rootReducer = combineReducers({
+  cake: cakeReducer,
+  iceCream: iceCreamReducer,
+});
+
 // store
 const createStore = redux.legacy_createStore;
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 
 // subscribe-dispatch values
 // CHAT-GPT chat link: https://chat.openai.com/share/a0bc6ab6-57d1-4319-8afb-2f123a5eb2f8
