@@ -1,4 +1,4 @@
-import redux from "redux";
+const redux = require("redux");
 
 // initial state
 const initialState = {
@@ -32,5 +32,4 @@ const createStore = redux.legacy_createStore;
 const store = createStore(reducer);
 
 // subscribe-dispatch values
-
-console.log("From INDEX.JS");
+console.log("Initial state: ", store.getState());
